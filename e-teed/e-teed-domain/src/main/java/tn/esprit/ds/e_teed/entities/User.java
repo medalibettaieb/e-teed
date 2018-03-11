@@ -1,12 +1,15 @@
 package tn.esprit.ds.e_teed.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +31,12 @@ public class User implements Serializable {
 	private String password;
 	@Column(name = "USR_EMAIL")
 	private String email;
+
+	@OneToMany(mappedBy = "user")
+	private List<MarkDetail> markDetails;
+
+	@ManyToMany(mappedBy = "studentsSubscribedIn")
+	private List<Course> coursesSubscribedIn;
 
 	public Long getCode() {
 		return code;
@@ -79,6 +88,22 @@ public class User implements Serializable {
 		this.login = login;
 		this.password = password;
 		this.email = email;
+	}
+
+	public List<MarkDetail> getMarkDetails() {
+		return markDetails;
+	}
+
+	public void setMarkDetails(List<MarkDetail> markDetails) {
+		this.markDetails = markDetails;
+	}
+
+	public List<Course> getCoursesSubscribedIn() {
+		return coursesSubscribedIn;
+	}
+
+	public void setCoursesSubscribedIn(List<Course> coursesSubscribedIn) {
+		this.coursesSubscribedIn = coursesSubscribedIn;
 	}
 
 }
