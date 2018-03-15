@@ -22,6 +22,8 @@ public class Course implements Serializable {
 	
 	@ManyToMany
 	private List<User> studentsSubscribedIn;
+	@ManyToMany
+	private List<User> teachers;
 
 	@OneToMany(mappedBy = "course")
 	private List<MarkDetail> markDetails;
@@ -61,6 +63,14 @@ public class Course implements Serializable {
 
 	public void setStudentsSubscribedIn(List<User> studentsSubscribedIn) {
 		this.studentsSubscribedIn = studentsSubscribedIn;
+	}
+
+	public List<User> getTeachers() {
+		return teachers;
+	}
+
+	public void setTeachers(List<User> teachers) {
+		this.teachers = teachers;
 	}
 
 }

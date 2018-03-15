@@ -22,7 +22,7 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USR_CODE")
-	private Long code;
+	private int code;
 	@Column(name = "USR_NAME")
 	private String name;
 	@Column(name = "USR_LOGIN")
@@ -38,11 +38,14 @@ public class User implements Serializable {
 	@ManyToMany(mappedBy = "studentsSubscribedIn")
 	private List<Course> coursesSubscribedIn;
 
-	public Long getCode() {
+	@ManyToMany(mappedBy = "teachers")
+	private List<Course> coursesTaught;
+
+	public int getCode() {
 		return code;
 	}
 
-	public void setCode(Long code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 
@@ -104,6 +107,14 @@ public class User implements Serializable {
 
 	public void setCoursesSubscribedIn(List<Course> coursesSubscribedIn) {
 		this.coursesSubscribedIn = coursesSubscribedIn;
+	}
+
+	public List<Course> getCoursesTaught() {
+		return coursesTaught;
+	}
+
+	public void setCoursesTaught(List<Course> coursesTaught) {
+		this.coursesTaught = coursesTaught;
 	}
 
 }

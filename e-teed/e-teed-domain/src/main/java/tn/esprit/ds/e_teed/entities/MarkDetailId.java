@@ -8,7 +8,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class MarkDetailId implements Serializable {
 
-	private Long code;
+	private int code;
 	private int idCourse;
 	private Date dateOfAssignement;
 
@@ -17,18 +17,18 @@ public class MarkDetailId implements Serializable {
 	public MarkDetailId() {
 	}
 
-	public MarkDetailId(Long code, int idCourse) {
+	public MarkDetailId(int code, int idCourse) {
 		super();
 		this.code = code;
 		this.idCourse = idCourse;
 		this.dateOfAssignement = new Date();
 	}
 
-	public Long getCode() {
+	public int getCode() {
 		return code;
 	}
 
-	public void setCode(Long code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 
@@ -52,7 +52,7 @@ public class MarkDetailId implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((code == null) ? 0 : code.hashCode());
+		result = prime * result + code;
 		result = prime * result + ((dateOfAssignement == null) ? 0 : dateOfAssignement.hashCode());
 		result = prime * result + idCourse;
 		return result;
@@ -67,10 +67,7 @@ public class MarkDetailId implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		MarkDetailId other = (MarkDetailId) obj;
-		if (code == null) {
-			if (other.code != null)
-				return false;
-		} else if (!code.equals(other.code))
+		if (code != other.code)
 			return false;
 		if (dateOfAssignement == null) {
 			if (other.dateOfAssignement != null)
@@ -81,5 +78,7 @@ public class MarkDetailId implements Serializable {
 			return false;
 		return true;
 	}
+
+	
 
 }
