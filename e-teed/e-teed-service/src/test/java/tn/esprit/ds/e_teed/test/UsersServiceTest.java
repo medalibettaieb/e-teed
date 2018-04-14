@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import tn.esprit.ds.e_teed.services.UserService;
+import tn.esprit.ds.e_teed.services.impl.UserService;
 
 @RunWith(Arquillian.class)
 public class UsersServiceTest {

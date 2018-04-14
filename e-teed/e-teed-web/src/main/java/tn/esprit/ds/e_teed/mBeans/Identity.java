@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import tn.esprit.ds.e_teed.entities.User;
-import tn.esprit.ds.e_teed.services.UserServiceLocal;
+import tn.esprit.ds.e_teed.services.interfaces.UserServiceLocal;
 
 @ManagedBean
 @SessionScoped

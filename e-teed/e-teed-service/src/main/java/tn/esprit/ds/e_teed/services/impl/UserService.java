@@ -1,10 +1,12 @@
-package tn.esprit.ds.e_teed.services;
+package tn.esprit.ds.e_teed.services.impl;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import tn.esprit.ds.e_teed.entities.User;
+import tn.esprit.ds.e_teed.services.interfaces.UserServiceLocal;
+import tn.esprit.ds.e_teed.services.interfaces.UserServiceRemote;
 import tn.esprit.ds.e_teed.utilities.GenericDAO;
 
 /**

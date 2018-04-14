@@ -1,4 +1,4 @@
-package tn.esprit.ds.e_teed.services;
+package tn.esprit.ds.e_teed.services.interfaces;
 
 import javax.ejb.Local;
 

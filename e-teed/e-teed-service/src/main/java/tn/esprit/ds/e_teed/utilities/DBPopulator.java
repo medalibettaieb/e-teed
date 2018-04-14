@@ -6,7 +6,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
 import tn.esprit.ds.e_teed.entities.User;
-import tn.esprit.ds.e_teed.services.UserServiceLocal;
+import tn.esprit.ds.e_teed.services.interfaces.UserServiceLocal;
 
 @Singleton
 @Startup
