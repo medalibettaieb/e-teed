@@ -34,6 +34,15 @@ public class MarkDetail implements Serializable {
 		super();
 	}
 
+	public MarkDetail(Float mark, User student, User teacher, Course course) {
+		super();
+		this.mark = mark;
+		this.user = student;
+		this.teacher = teacher;
+		this.course = course;
+		this.markDetailId = new MarkDetailId(user.getCode(), course.getId());
+	}
+
 	public MarkDetail(Float mark, User user, Course course) {
 		super();
 		this.mark = mark;
