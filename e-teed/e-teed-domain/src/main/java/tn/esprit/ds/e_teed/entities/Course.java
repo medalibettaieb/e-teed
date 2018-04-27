@@ -3,7 +3,9 @@ package tn.esprit.ds.e_teed.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,19 +20,22 @@ import javax.persistence.OneToMany;
 
 public class Course implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6536611956795943434L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<User> studentsSubscribedIn;
 	@ManyToMany
 	private List<User> teachers;
 
 	@OneToMany(mappedBy = "course")
 	private List<MarkDetail> markDetails;
-	private static final long serialVersionUID = 1L;
 
 	public Course() {
 		super();

@@ -16,9 +16,13 @@ import javax.persistence.Table;
 @Table(name = "tab_user")
 public class User implements Serializable {
 
-	/** serialVersionUID */
-	private static final long serialVersionUID = 1L;
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6477185705912197510L;
+	/**
+	 * 
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USR_CODE")
@@ -31,13 +35,11 @@ public class User implements Serializable {
 	private String password;
 	@Column(name = "USR_EMAIL")
 	private String email;
-
 	@OneToMany(mappedBy = "user")
 	private List<MarkDetail> markDetails;
 
 	@ManyToMany(mappedBy = "studentsSubscribedIn")
 	private List<Course> coursesSubscribedIn;
-
 	@ManyToMany(mappedBy = "teachers")
 	private List<Course> coursesTaught;
 
@@ -115,6 +117,70 @@ public class User implements Serializable {
 
 	public void setCoursesTaught(List<Course> coursesTaught) {
 		this.coursesTaught = coursesTaught;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + code;
+		result = prime * result + ((coursesSubscribedIn == null) ? 0 : coursesSubscribedIn.hashCode());
+		result = prime * result + ((coursesTaught == null) ? 0 : coursesTaught.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((login == null) ? 0 : login.hashCode());
+		result = prime * result + ((markDetails == null) ? 0 : markDetails.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (code != other.code)
+			return false;
+		if (coursesSubscribedIn == null) {
+			if (other.coursesSubscribedIn != null)
+				return false;
+		} else if (!coursesSubscribedIn.equals(other.coursesSubscribedIn))
+			return false;
+		if (coursesTaught == null) {
+			if (other.coursesTaught != null)
+				return false;
+		} else if (!coursesTaught.equals(other.coursesTaught))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (login == null) {
+			if (other.login != null)
+				return false;
+		} else if (!login.equals(other.login))
+			return false;
+		if (markDetails == null) {
+			if (other.markDetails != null)
+				return false;
+		} else if (!markDetails.equals(other.markDetails))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		return true;
 	}
 
 }

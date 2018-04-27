@@ -27,13 +27,13 @@ public class TestAddStudents {
 
 		Course course = new Course("Regression Parametrique");
 
-		userServiceRemote.save(student);
-		userServiceRemote.save(student2);
-		userServiceRemote.save(student3);
-		userServiceRemote.save(student4);
-		userServiceRemote.save(teacher);
+		userServiceRemote.update(student);
+		userServiceRemote.update(student2);
+		userServiceRemote.update(student3);
+		userServiceRemote.update(student4);
+		userServiceRemote.update(teacher);
 
-		courseServiceRemote.save(course);
+		courseServiceRemote.update(course);
 	}
 
 }
