@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tab_user")
+@Table(name = "T_USER")
 public class User implements Serializable {
 
 	/**
@@ -35,11 +35,13 @@ public class User implements Serializable {
 	private String password;
 	@Column(name = "USR_EMAIL")
 	private String email;
+
 	@OneToMany(mappedBy = "user")
 	private List<MarkDetail> markDetails;
 
 	@ManyToMany(mappedBy = "studentsSubscribedIn")
 	private List<Course> coursesSubscribedIn;
+
 	@ManyToMany(mappedBy = "teachers")
 	private List<Course> coursesTaught;
 

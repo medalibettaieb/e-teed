@@ -22,6 +22,7 @@ public class TestSubscribeToCourse {
 	
 		Course course=courseServiceRemote.find(1);
 		User user=userServiceRemote.find(2);
+		
 		courseServiceRemote.subscribeToCourse(course, user);
 	}
 

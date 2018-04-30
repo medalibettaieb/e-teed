@@ -9,15 +9,18 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * Entity implementation class for Entity: Course
  *
  */
 @Entity
-
+@Table(name = "T_COURSE")
 public class Course implements Serializable {
 
 	/**
@@ -29,9 +32,11 @@ public class Course implements Serializable {
 	private int id;
 	private String name;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "T_STUDENT_COURSE", joinColumns = @JoinColumn(name = "studentid", referencedColumnName = "id"))
 	private List<User> studentsSubscribedIn;
 	@ManyToMany
+	@JoinTable(name = "T_TEACHER_COURSE")
 	private List<User> teachers;
 
 	@OneToMany(mappedBy = "course")

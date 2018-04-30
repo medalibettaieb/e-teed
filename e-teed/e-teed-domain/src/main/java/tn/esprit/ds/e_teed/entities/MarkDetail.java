@@ -6,13 +6,14 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Entity implementation class for Entity: MarkDetail
  *
  */
 @Entity
-
+@Table(name = "T_MarkDetail")
 public class MarkDetail implements Serializable {
 	@EmbeddedId
 	private MarkDetailId markDetailId;
