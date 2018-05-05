@@ -16,10 +16,10 @@
 			<h:form>
 				<h:panelGrid columns="2" styleClass="centredForm">
 					<h:outputText value="LOGIN:" />
-					<h:inputText value="#{identity.user.login}" />
+					<h:inputText value="#{identityBean.user.login}" />
 					<h:outputText value="PASSWORD:" />
-					<h:inputSecret value="#{identity.user.password}" />
-					<h:commandButton action="#{identity.doLogin()}" value="SUBMIT" />
+					<h:inputSecret value="#{identityBean.user.password}" />
+					<h:commandButton action="#{identityBean.doLogin()}" value="SUBMIT" />
 					<h:messages styleClass="error" />
 				</h:panelGrid>
 			</h:form>

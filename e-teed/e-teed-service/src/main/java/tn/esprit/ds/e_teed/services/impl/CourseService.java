@@ -56,4 +56,11 @@ public class CourseService extends GenericDAO<Course> implements CourseServiceRe
 				.setParameter("p", course).getResultList();
 	}
 
+	@Override
+	public List<Course> findCoursesByStudent(User student) {
+		return em.createQuery("select cu from Course cu where :p member of cu.studentsSubscribedIn", Course.class)
+				.setParameter("p", student).getResultList();
+
+	}
+
 }

@@ -9,23 +9,19 @@
 			</ui:define>
 	<ui:define name="pageContent">
 		<h:form>
-			<h:dataTable value="#{courseBean.courses}" var="c" border="2">
+			<h:commandLink action="/listCourses" value="list courses" />
+
+			<h1>list of my courses</h1>
+
+			<h:dataTable value="#{courseBean.coursesByStudent}" var="c"
+				border="2">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="name" />
 					</f:facet>
 					<h:outputText value="#{c.name}" />
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="#" />
-					</f:facet>
-					<h:commandButton action="#{courseBean.doSubscribeToCourse()}"
-						value="subscribe">
-						<f:setPropertyActionListener value="#{c}"
-							target="#{courseBean.courseSelected}"></f:setPropertyActionListener>
-					</h:commandButton>
-				</h:column>
+
 			</h:dataTable>
 		</h:form>
 

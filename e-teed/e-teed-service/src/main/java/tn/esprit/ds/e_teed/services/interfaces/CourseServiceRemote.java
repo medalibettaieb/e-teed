@@ -13,4 +13,6 @@ public interface CourseServiceRemote extends IGenericDAO<Course> {
 	void subscribeToCourse(Course course, User user);
 
 	List<User> findStudentsByCourse(Course course);
+
+	List<Course> findCoursesByStudent(User student);
 }
